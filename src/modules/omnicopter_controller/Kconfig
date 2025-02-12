@@ -1,0 +1,5 @@
+menuconfig MODULES_OMNICOPTER_CONTROLLER
+	bool "omnicopter_controller"
+	default n
+	---help---
+		Enable support for omnicopter_controller

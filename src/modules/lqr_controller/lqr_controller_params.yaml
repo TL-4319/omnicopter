@@ -1,0 +1,68 @@
+module_name: lqr_controller
+
+parameters:
+ - group: LQR
+   definitions:
+    C_T:
+      description:
+        short: Motor Thrust coefficient
+        long: The ratio of thrust to throttle used for converting desired body forces and torques into motor commands
+      type: float
+      # unit: N/(rad/s)
+      default: 9.2748e-3
+      volatile: false
+      reboot_required: false
+
+    C_TAU:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      # unit: Nm/(rad/s)
+      default: 148.0618e-6
+      volatile: false
+      reboot_required: false
+
+    K_POS_COEF_${i}:
+      description:
+        short: non-zero K_pos coefficeints
+        long: The 9 coefficeints used in the K_pos matrix used for calculating desired F_t, phi, and theta
+      type: float
+      default: [-2.9075, -2.0468, 1.3736, 0.4845, 0.3165, -0.2373, -0.4845, -0.3165, 0.2373]
+      volatile: false
+      reboot_required: false
+      num_instances: 9
+      instance_start: 0
+
+    K_ATT_COEF_${i}:
+      description:
+        short: non-zero K_att coefficeints
+        long: The 9 coefficeints used in the K_att matrix used for calculating desired tau_x, tau_y, and tau_z
+      type: float
+      default: [0.1982, 0.0220, -0.8183, 0.1987, 0.0220, -0.8192, 0.1376, 0.0429, -0.1819]
+      volatile: false
+      reboot_required: false
+      num_instances: 9
+      instance_start: 0
+
+    LQR_DEBUG:
+      description:
+        short: Debug Boolean
+        long: Whether or not to print debuging info statements for review
+      type: boolean
+      default: false
+      volatile: false
+      reboot_required: false
+
+    LQR_VEH_WT:
+      description:
+        short: Quadcopter weight
+        long: Vehicle's weight in grams
+      type: float
+      default: 842
+      volatile: false
+      reboot_required: false
+
+
+
+

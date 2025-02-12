@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Omnicopter default parameters.
+#
+# NOTE: Script variables are declared/initialized/unset in the rcS script.
+#
+
+set VEHICLE_TYPE omni

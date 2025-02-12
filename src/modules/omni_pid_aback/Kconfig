@@ -1,0 +1,5 @@
+menuconfig MODULES_OMNI_PID_ABACK
+	bool "omni_pid_aback"
+	default n
+	---help---
+		Enable support for omni_pid_aback

@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# @name Quadrotor SITL model for Gazebo
+#
+# @type Quadrotor
+#
+# @maintainer Patrick Thomas
+#
+
+. ${R}etc/init.d/rc.x_quad_defaults
+
+set MIXER x_quad

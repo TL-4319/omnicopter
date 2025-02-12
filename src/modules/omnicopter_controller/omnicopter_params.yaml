@@ -1,0 +1,163 @@
+module_name: omnicopter_controller
+
+parameters:
+ - group: OMNI
+   definitions:
+    OMNI_POS_TAU:
+      description:
+        short: Motor Thrust coefficient
+        long: The ratio of thrust to throttle used for converting desired body forces and torques into motor commands
+      type: float
+      unit: s
+      default: 0.4
+      volatile: false
+      reboot_required: false
+
+    OMNI_POS_TAU_I:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: s
+      default: 1.65
+      volatile: false
+      reboot_required: false
+
+    OMNI_POS_ETA:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: '%'
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_MASS:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: kg
+      default: 1.4
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_TAU:
+      description:
+        short: Motor Thrust coefficient
+        long: The ratio of thrust to throttle used for converting desired body forces and torques into motor commands
+      type: float
+      unit: s
+      default: 0.8
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_TAU_I:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: s
+      default: 2.8
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_TAU_W:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: s
+      default: 0.085
+      volatile: false
+      reboot_required: false
+
+    OMNI_J_XX:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: kg m^2
+      default: 0.0295
+      volatile: false
+      reboot_required: false
+
+    OMNI_J_YY:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: kg m^2
+      default: 0.0294
+      volatile: false
+      reboot_required: false
+
+    OMNI_J_ZZ:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: kg m^2
+      default: 0.0293
+      volatile: false
+      reboot_required: false
+
+    OMNI_CTRL_EPS:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: '%'
+      default: 0.95
+      volatile: false
+      reboot_required: false
+
+    OMNI_THROT_MIN:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: '%'
+      default: 0.08
+      volatile: false
+      reboot_required: false
+
+    OMNI_THROT_MAX:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: '%'
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_TAU_HYST:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: s
+      default: 0.75
+      volatile: false
+      reboot_required: false
+
+    OMNI_TAU_F:
+      description:
+        short: Motor Torque coefficient
+        long: The ratio of torque to throttle used for converting desired yaw torque into motor commands
+      type: float
+      unit: N
+      default: 34.94e-3
+      volatile: false
+      reboot_required: false
+
+    OMNI_DEBUG:
+      description:
+        short: Debug Boolean
+        long: Whether or not to print debuging info statements for review
+      type: boolean
+      default: true
+      volatile: false
+      reboot_required: false

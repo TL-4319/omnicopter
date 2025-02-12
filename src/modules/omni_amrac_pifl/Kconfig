@@ -1,0 +1,5 @@
+menuconfig MODULES_OMNI_AMRAC_PIFL
+	bool "omni_amrac_pifl"
+	default n
+	---help---
+		Enable support for omni_amrac_pifl

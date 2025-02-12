@@ -1,0 +1,5 @@
+menuconfig MODULES_OMNI_AMRAC_AMRAC
+	bool "omni_amrac_amrac"
+	default n
+	---help---
+		Enable support for omni_amrac_amrac

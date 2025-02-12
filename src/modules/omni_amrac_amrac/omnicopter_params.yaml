@@ -1,0 +1,343 @@
+module_name: omnicopter_controller
+
+parameters:
+ - group: OMNI
+   definitions:
+    OMNI_POS_TAU:
+      description:
+        short: Position control P Tau
+        long: Position control time constant
+      type: float
+      unit: s
+      default: 0.325
+      volatile: false
+      reboot_required: false
+
+    OMNI_POS_TAU_I:
+      description:
+        short: Position control I Tau
+        long: Position control integral time constant
+      type: float
+      unit: s
+      default: 1.33
+      volatile: false
+      reboot_required: false
+
+    OMNI_POS_ETA:
+      description:
+        short: Position control Eta
+        long: Position control damping ratio
+      type: float
+      unit: '%'
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_MASS:
+      description:
+        short: omnicopter mass
+        long: omnicopter mass
+      type: float
+      unit: kg
+      default: 0.892
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_KQ:
+      description:
+        short: aMRAC q error gain
+        long: aMRAC gain for q error
+      type: float
+      unit: s
+      default: 80.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_KW:
+      description:
+        short: aMRAC ang vel error gain
+        long: aMRAC attitude control gain for angular velocity error
+      type: float
+      unit: s
+      default: 12.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_KE:
+      description:
+        short: aMRAC damping
+        long: aMRAC damping aid gain
+      type: float
+      unit: s
+      default: 25.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_GTHETA:
+      description:
+        short: aMRAC adaptive gain for theta estimate
+        long: aMRAC attitude control adaptive gain for theta estimate
+      type: float
+      unit: s
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_GLAMBDA:
+      description:
+        short: aMRAC adaptive gain for lambda estimate
+        long: aMRAC attitude control adaptive gain for lambda estimate
+      type: float
+      unit: s
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_GTAU:
+      description:
+        short: aMRAC adaptive gain for td estimate
+        long: aMRAC attitude control adaptive gain for disturbance torque estimate
+      type: float
+      unit: s
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_TMAXTA:
+      description:
+        short: aMRAC max norm for theta estimate
+        long: aMRAC attitude control adaptive max norm for theta estimate
+      type: float
+      unit: s
+      default: 0.1
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_TMAXLAM:
+      description:
+        short: aMRAC max norm for lambda estimate
+        long: aMRAC attitude control max norm for lambda estimate
+      type: float
+      unit: s
+      default: 35.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_ATT_TMAXTD:
+      description:
+        short: aMRAC max norm for td estimate
+        long: aMRAC max norm for disturbance torque estimate
+      type: float
+      unit: s
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_F_MAX:
+      description:
+        short: Max achievable body force
+        long: The maximum achivable body force the omnicopter can achieve
+      type: float
+      unit: Nm
+      default: 17
+      volatile: false
+      reboot_required: false
+
+    OMNI_T_MAX:
+      description:
+        short: Max achievable torque
+        long: The maximum achivable torque the omnicopter can achieve while still producing enough lift to hover
+      type: float
+      unit: Nm
+      default: 0.5
+      volatile: false
+      reboot_required: false
+
+    OMNI_J_XX:
+      description:
+        short: Omni MoI about x
+        long: Omnicopter moment of inertia about the x axis
+      type: float
+      unit: kg m^2
+      default: 0.0295
+      volatile: false
+      reboot_required: false
+
+    OMNI_J_YY:
+      description:
+        short: Omni MoI about y
+        long: Omnicopter moment of inertia about the y axis
+      type: float
+      unit: kg m^2
+      default: 0.0294
+      volatile: false
+      reboot_required: false
+
+    OMNI_J_ZZ:
+      description:
+        short: Omni MoI about z
+        long: Omnicopter moment of inertia about the z axis
+      type: float
+      unit: kg m^2
+      default: 0.0293
+      volatile: false
+      reboot_required: false
+
+    OMNI_CTRL_EPS:
+      description:
+        short: Control allocation epsilon
+        long: Control allocation short vs long term objective weight
+      type: float
+      unit: '%'
+      default: 0.95
+      volatile: false
+      reboot_required: false
+
+    OMNI_THROT_MIN:
+      description:
+        short: Min throttle setting
+        long: Min throttle setting
+      type: float
+      unit: '%'
+      default: 0.08
+      volatile: false
+      reboot_required: false
+
+    OMNI_THROT_MAX:
+      description:
+        short: Max throttle setting
+        long: Max throttle setting
+      type: float
+      unit: '%'
+      default: 1.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_TAU_HYST:
+      description:
+        short: Control allocation hysteresis
+        long: Control allocation temporal hysteresis on rotation direction
+      type: float
+      unit: s
+      default: 0.75
+      volatile: false
+      reboot_required: false
+
+    OMNI_TAU_F:
+      description:
+        short: Control allocation tau
+        long: Control allocation temporal hysteresis on rotation direction
+      type: float
+      unit: N
+      default: 34.94e-3
+      volatile: false
+      reboot_required: false
+
+    OMNI_TAU_MOT:
+      description:
+        short: Motor time constant
+        long: Motor time constant for modeling motor as first order transfer function
+      type: float
+      unit: ms
+      default: 85
+      volatile: false
+      reboot_required: false
+
+    OMNI_KAPPA:
+      description:
+        short: Control allocation Kappa
+        long: Rotor ratio of torque to thrust
+      type: float
+      unit: Nm
+      default: 1.90e-2
+      volatile: false
+      reboot_required: true
+
+    OMNI_J_ARM:
+      description:
+        short: Rotor arm distance
+        long: Distance from center of gravit to center of rotor along the arm
+      type: float
+      unit: m
+      default: 0.19
+      volatile: false
+      reboot_required: true
+
+    OMNI_GAMMA:
+      description:
+        short: Adaptive tuning gain
+        long: Adaptive tuning gain
+      type: float
+      unit: '%'
+      default: 10.0
+      volatile: false
+      reboot_required: false
+
+    OMNI_P1:
+      description:
+        short: Plyap value
+        long: Lyapunov equation solution, values go in the first 3 slots of the main diagonal
+      type: float
+      unit: '%'
+      default: 1.9778
+      volatile: false
+      reboot_required: false
+
+    OMNI_P2:
+      description:
+        short: Plyap value
+        long: Lyapunov equation solution, values go in the second 3 slots of the main diagonal
+      type: float
+      unit: '%'
+      default: 0.0890
+      volatile: false
+      reboot_required: false
+
+    OMNI_P3:
+      description:
+        short: Plyap value
+        long: Lyapunov equation solution, values go in the last 3 slots of the main diagonal
+      type: float
+      unit: '%'
+      default: 1.8076
+      volatile: false
+      reboot_required: false
+
+    OMNI_P4:
+      description:
+        short: Plyap value
+        long: Lyapunov equation solution, values go in the first 3 slots of the second diagonal
+      type: float
+      unit: '%'
+      default: 0.1149
+      volatile: false
+      reboot_required: false
+
+    OMNI_P5:
+      description:
+        short: Plyap value
+        long: Lyapunov equation solution, values go in the last 3 slots of the second diagonal
+      type: float
+      unit: '%'
+      default: 0.0702
+      volatile: false
+      reboot_required: false
+
+    OMNI_P6:
+      description:
+        short: Plyap value
+        long: Lyapunov equation solution, values go in the last diagonal
+      type: float
+      unit: '%'
+      default: 1.1189
+      volatile: false
+      reboot_required: false
+
+    OMNI_DEBUG:
+      description:
+        short: Debug Boolean
+        long: Whether or not to print debuging info statements for review
+      type: boolean
+      default: true
+      volatile: false
+      reboot_required: false
