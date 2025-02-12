@@ -174,6 +174,7 @@ set(models
 	uuv_bluerov2_heavy
 	uuv_hippocampus
 	x_quad
+	omnicopter
 )
 
 set(worlds

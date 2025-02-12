@@ -40,4 +40,7 @@ px4_add_romfs_files(
 	px4-rc.simulator
 	rc.replay
 	rcS
+	rc.omni_apps
+	rc.omni_defaults
+	rc.vehicle_setup
 )
