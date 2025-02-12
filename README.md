@@ -1,5 +1,35 @@
 # Omnicopter Firmware Adaptation
-The omnicopter is a 6DOF controllable multirotor in the shape of a cube actuated by 8 motors. It was originally designed at ETH Zurich by Dario Brescianini and Rafael D'Andrea. The original paper can be found [here](https://doi.org/10.1016/j.mechatronics.2018.08.005). 
+## UA LAGER specifics
+### Pre-requisite
+Docker engine
+
+### Setup
+Clone this repository and submodules
+```
+git clone git@github.com:TL-4319/omnicopter.git --recursive
+```
+
+### Begin gazebo simulator
+Spin up a docker
+```
+./Tools/px4_docker_setup.sh
+```
+
+Within the docker container, navigate to the omnicopter directory
+
+```
+cd workspaces/omnicopter
+```
+
+Begin gazebo sim with iris drone
+```
+make px4_sitl gazebo_iris
+```
+
+This starts a SITL simulation with a IRIS drone in Gazebo. The drone mavlink telemetry is exposed over \<IP-address>:18570 UDP port
+
+## Virginia Tech addition
+The omnicopter is a 6DOF controllable multirotor in the shape of a cube actuated by 8 motors. It was originally designed at ETH Zurich by Dario Brescianini and Rafael D'Andrea. The original paper can be found [here](https://doi.org/10.1016/j.mechatronics.2018.08.005).
 
 This vehicle has been recreated in the [Spacedrones lab](https://spacedrones.aoe.vt.edu) at Virginia Tech using COTS hardware as well as 3d printed parts. Links to the CAD files and parts list can be found here. It is intended to emulate in-space free flyer dynamics.
 
