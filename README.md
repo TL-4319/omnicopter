@@ -21,12 +21,32 @@ Within the docker container, navigate to the omnicopter directory
 cd workspaces/omnicopter
 ```
 
+#### Begin IRIS drone sim
 Begin gazebo sim with iris drone
 ```
+git tag v1.13.0-dev
 make px4_sitl gazebo_iris
 ```
 
 This starts a SITL simulation with a IRIS drone in Gazebo. The drone mavlink telemetry is exposed over \<IP-address>:18570 UDP port
+
+#### Begin IRIS drone sim
+Begin gazebo sim with omnicopter drone
+```
+git tag v1.13.0-dev
+make px4_sitl gazebo_omnicopter
+```
+
+This starts a SITL simulation with a Omnicopter drone in Gazebo. The drone mavlink telemetry is exposed over \<IP-address>:18570 UDP port.
+
+NOTE: There seems to be a configuration mismatch regarding motor config between the Omnicopter model in /Tools/sitl_gazebo and the Omnicopter control + config defined in ROMFS/px4fmu_common/init.d-posix. This needs to be rectified so that the omnicopter can fly
+
+### Closing docker container
+For some reason, the container is not closed when we exit from within the container. Manually close the container via
+
+```
+docker container rm PX4_ROS_container
+```
 
 ## Virginia Tech addition
 The omnicopter is a 6DOF controllable multirotor in the shape of a cube actuated by 8 motors. It was originally designed at ETH Zurich by Dario Brescianini and Rafael D'Andrea. The original paper can be found [here](https://doi.org/10.1016/j.mechatronics.2018.08.005).
